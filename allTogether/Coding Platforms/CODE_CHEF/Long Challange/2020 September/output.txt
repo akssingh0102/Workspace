@@ -1,0 +1,2 @@
+Enter the 20 element :
+Sum is = 10
