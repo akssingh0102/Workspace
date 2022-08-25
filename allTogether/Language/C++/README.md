@@ -1,4 +1,4 @@
-VECTOR
+**VECTOR**
 - vector is a dynamic sized array, it's capasity keeps on getting double when got full.<br />
     Size:0 Size:0<br />
     Adding 1 element
