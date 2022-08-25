@@ -110,7 +110,7 @@ int main(){
 
     for(int i=1;i <=10;i++){
         cout<<"Size:"<<arr.size()<<" ";
-        cout<<"Size:"<<arr.capacity()<<endl;
+        cout<<"Capacity:"<<arr.capacity()<<endl;
 
         cout<<"Adding "<<i<<" element"<<endl<<endl;
         arr.push_back(i);
