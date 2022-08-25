@@ -112,7 +112,7 @@ int main(){
         cout<<"Size:"<<arr.size()<<" ";
         cout<<"Size:"<<arr.capacity()<<endl;
 
-        cout<<"Adding"<<i<<"element"<<endl<<endl;
+        cout<<"Adding "<<i<<" element"<<endl<<endl;
         arr.push_back(i);
     }
     
