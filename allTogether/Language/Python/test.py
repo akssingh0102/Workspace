@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 
-soup = BeautifulSoup('नमस्ते<Dsad')
+text = 'dog &amp & cat'
+soup = BeautifulSoup(text, 'html.parser')
 
 print(soup)
-print(soup.text)
+print(soup.text.strip())
