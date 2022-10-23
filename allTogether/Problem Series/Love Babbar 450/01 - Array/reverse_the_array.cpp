@@ -118,6 +118,23 @@ void rightRotateArray(vector<int> arr){
     
 }
 
+void reverArray(vector<int> arr){
+    if(arr.size() == 0 || arr.size() == 1)
+        return;
+    int first,last;
+    first = 0;
+    last = arr.size() - 1;
+    printArray(arr);
+    cout<<endl;
+    while(first < last){
+        swap(arr[first], arr[last]);
+        first++;
+        last--;
+    }
+
+    printArray(arr);
+}
+
 int main(){
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
@@ -127,9 +144,8 @@ int main(){
     freopen("output.txt", "w", stdout);
     #endif
     
-    int arraySize, rotateByPlaces;
+    int arraySize;
     cin>>arraySize;
-    cin>>rotateByPlaces;
     vector <int> arr;
     
     while (arraySize--) 
@@ -138,9 +154,7 @@ int main(){
         cin>>data;
         arr.push_back(data);
     }
-
-    rotateByPlaces = arraySize % rotateByPlaces;
-    printArray(arr);
+    reverArray(arr);
     
     return 0;
 }
