@@ -102,6 +102,22 @@
 #define pq                  priority_queue <int, vector<int>, greater<int> >
 using namespace std;
 
+void printArray(vector<int> arr){
+    for (int i = 0; i < arr.size(); i++)
+    {
+        cout<<arr[i]<<" ";
+    }
+    
+}
+
+void leftRotateArray(vector<int> arr){
+
+}
+
+void rightRotateArray(vector<int> arr){
+    
+}
+
 int main(){
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
@@ -111,18 +127,20 @@ int main(){
     freopen("output.txt", "w", stdout);
     #endif
     
-    int arraySize;
+    int arraySize, rotateByPlaces;
     cin>>arraySize;
-
+    cin>>rotateByPlaces;
     vector <int> arr;
+    
     while (arraySize--) 
     {
         int data;
         cin>>data;
         arr.push_back(data);
     }
-    
-      
+
+    rotateByPlaces = arraySize % rotateByPlaces;
+    printArray(arr);
     
     return 0;
 }
