@@ -1,2 +1,2 @@
-6largest : 3
-smallest : 167
+largest : 10000
+smallest : 1
