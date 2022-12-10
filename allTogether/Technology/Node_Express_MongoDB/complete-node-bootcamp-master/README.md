@@ -1,4 +1,4 @@
-# Course Material and FAQ for my Complete Node.js, Express and MongoDB Bootcamp
+<!-- # Course Material and FAQ for my Complete Node.js, Express and MongoDB Bootcamp
 
 This repo contains starter files and the finished project files for all the projects contained in the course (complete repo size is **288MB**).
 
@@ -52,4 +52,4 @@ Plus, I made all the [course slides available for download](theory-lectures.pdf)
 
 ### Q11: Do you accept pull requests?
 
-**A:** No, for the simple reason that I want this repository to contain the _exact_ same code that is shown in the videos. However, please feel free to add an issue if you found one.
+**A:** No, for the simple reason that I want this repository to contain the _exact_ same code that is shown in the videos. However, please feel free to add an issue if you found one. -->
