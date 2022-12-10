@@ -1,4 +1,8 @@
 const fs = require('fs');
+const http = require('http');
+const url = require('url');
+
+//************************** FILES ********************************
 
 // // Blocking Scynchronous way
 // // if we dont't define format to utf-8 we'll just get a buffer (un-readable) format
@@ -14,14 +18,86 @@ const fs = require('fs');
 
 // Non-Blocking Ascynchronous way
 
-fs.readFile('./txt/start.txt', 'utf-8',(err, data1) => {
-    fs.readFile(`./txt/${data1}.txt`, 'utf-8',(err, data2) => {
-        console.log(data2);
-        fs.readFile(`./txt/append.txt`, 'utf-8',(err, data3) => {
-            console.log(data3);
-            fs.writeFile('./txt/final.txt', `${data2}\n${data3}` , 'utf-8' , err => {
-                console.log(`Your file have been written  😄!!`);
+// fs.readFile('./txt/start.txt', 'utf-8',(err, data1) => {
+//     fs.readFile(`./txt/${data1}.txt`, 'utf-8',(err, data2) => {
+//         console.log(data2);
+//         fs.readFile(`./txt/append.txt`, 'utf-8',(err, data3) => {
+//             console.log(data3);
+//             fs.writeFile('./txt/final.txt', `${data2}\n${data3}` , 'utf-8' , err => {
+//                 console.log(`Your file have been written  😄!!`);
+//             });
+//         });
+//     });
+// });
+
+
+//************************** SERVER ********************************
+
+// DEFIN FUNCTIONS 
+const replaceTemplate = (temp, product) => {
+    let output = temp.replace(/{%PRODUCT_NAME%}/g, product.productName);
+    output = output.replace(/{%IMAGE%}/g, product.image);
+    output = output.replace(/{%PRICE%}/g, product.price);
+    output = output.replace(/{%FROM%}/g, product.from);
+    output = output.replace(/{%NUTRIENTS%}/g, product.nutrients);
+    output = output.replace(/{%QUANTITY%}/g, product.quantity);
+    output = output.replace(/{%DESCRIPTION%}/g, product.description);
+    output = output.replace(/{%ID%}/g, product.id);
+
+    if(!product.organic){
+        output = output.replace(/{%NOT_ORGANIC%}/g, 'not-organic');
+    }
+
+    return output;
+}
+
+// LOADINF TEMPLATE
+const templateOverview = fs.readFileSync(`${__dirname}/templates/template-overview.html`, 'utf-8');
+const templateProduct = fs.readFileSync(`${__dirname}/templates/template-product.html`, 'utf-8');
+const templateCard = fs.readFileSync(`${__dirname}/templates/template-card.html`, 'utf-8');
+
+// LOADING JSON DATA
+const data = fs.readFileSync(`${__dirname}/dev-data/data.json`, 'utf-8');
+const dataObj = JSON.parse(data);
+
+const PORT = 8000;
+const server = http.createServer((req, res) => {
+    const pathName = req.url;
+
+    // OVERVIEW PAGE
+    if (pathName === '/' || pathName === '/overview') {
+        res.writeHead(404, {'Content-type': 'text/html'});
+
+        // Iterate over all the json obects of products and create a card template for it and save all
+        // of this into cardHtml 
+        const cardsHtml = dataObj.map(el => replaceTemplate(templateCard, el)).join('');
+        const output = templateOverview.replace('{%PRODUCT_CARDS%}', cardsHtml);
+
+        res.end(output);
+
+    // PRODUCTS PAGE
+    } else if (pathName === '/product') {
+        res.end(`This is the PRODUCT !!`);
+    
+    // API PAGE
+    } else if(pathName === '/api') {
+            res.writeHead(200, {
+                'Content-type': 'application/json'
             });
+
+            // becuse res.end expects an string not a JSON object(productData)
+            res.end(data);
+    
+    // NOT-FOUND PAGE
+    } else {
+        res.writeHead(404, {
+            'Content-type': 'text/html',
+            'my-own-header': 'hello-world'
         });
-    });
+        res.end(`<h1>PAGE NOT FOUND</h1>`);
+    }
 });
+
+server.listen(PORT, '127.0.0.1', () => {
+    console.log(`Listening to request on PORT:${PORT}`);
+})

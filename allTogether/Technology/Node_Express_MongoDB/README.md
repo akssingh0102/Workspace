@@ -1,0 +1,8 @@
+What we learn 
+
+1. Project node-farm
+    - Routing 
+    - API 
+    - Creating web server 
+    - HTML dynamic tendering of data
+ 
