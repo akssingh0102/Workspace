@@ -6,3 +6,4 @@ What we learn
     - Creating web server 
     - HTML dynamic tendering of data
     - Handling query with url (url.parse)
+    - Creating modules
