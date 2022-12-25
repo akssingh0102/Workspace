@@ -7,3 +7,4 @@ What we learn
     - HTML dynamic tendering of data
     - Handling query with url (url.parse)
     - Creating modules
+    - Intro to NPM and package.json
