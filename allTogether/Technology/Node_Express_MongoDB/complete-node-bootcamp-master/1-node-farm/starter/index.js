@@ -2,6 +2,9 @@ const fs = require('fs');
 const http = require('http');
 const { json } = require('stream/consumers');
 const url = require('url');
+
+const slugify = require('slugify');
+
 const replaceTemplate = require('./modules/replaceTemplate');
 
 //************************** FILES ********************************
@@ -42,6 +45,9 @@ const templateCard = fs.readFileSync(`${__dirname}/templates/template-card.html`
 // LOADING JSON DATA
 const data = fs.readFileSync(`${__dirname}/dev-data/data.json`, 'utf-8');
 const dataObj = JSON.parse(data);
+
+const slugs = dataObj.map(ele => slugify(ele.productName, {lower: true}));
+console.log(slugs);
 
 const PORT = 8000;
 const server = http.createServer((req, res) => {
