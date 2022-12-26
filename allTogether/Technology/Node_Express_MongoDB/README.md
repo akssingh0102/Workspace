@@ -10,3 +10,10 @@ What we learn
     - Handling query with url (url.parse)
     - Creating modules
     - Intro to NPM and package.json
+
+2. How Node Works
+
+3. Asynchronous Javascript
+    - Callback Hells (Explanation)
+    - Promise
+    - Async/Await
