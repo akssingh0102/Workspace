@@ -30,14 +30,28 @@ const writeFilePro = (file, data) => {
 };
 
 const getDogPic = async () => {
-    const data = await readFilePro(`${__dirname}/dog.txt`);
-    console.log(`Breed : ${data}`);
+    try {
+        const data = await readFilePro(`${__dirname}/dog.txt`);
+        console.log(`Breed : ${data}`);
 
-    const res = await superagent.get(`https://dog.ceo/api/breed/${data}/images/random`);
-    console.log(res.body.message);
+        // We are saving promises in res, res2, res3 as we know superagent will reuturn promise if don't add await on it
+        const res = superagent.get(`https://dog.ceo/api/breed/${data}/images/random`);
 
-    await writeFilePro("dog-img.txt", res.body.message);
-    console.log("Dog image saved to dog-img.txt");
+        const res2 = superagent.get(`https://dog.ceo/api/breed/${data}/images/random`);
+
+        const res3 = superagent.get(`https://dog.ceo/api/breed/${data}/images/random`);
+
+        // we'll pass an array containing all the above 3 promises and await for it (all 3 promises will run at teh same time)
+        const all = await Promise.all([res, res2, res3]);
+        const imgs = all.map(el => el.body.message);
+
+        console.log(imgs);
+
+        await writeFilePro("dog-img.txt", imgs.join('\n'));
+        console.log("Dog image saved to dog-img.txt");
+    } catch (err) {
+        console.log(err);
+    }
 };
 getDogPic();
 
