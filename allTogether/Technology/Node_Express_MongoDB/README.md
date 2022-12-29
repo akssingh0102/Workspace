@@ -18,7 +18,7 @@ What we learn
     - Promise
     - Async/Await
 
-4. Naturs
+4. Natours
     - 4.1 
         - Intro To Express Framework
         - 
