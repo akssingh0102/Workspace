@@ -21,3 +21,6 @@ What we learn
 4. Natours
     - 4.1 
         - Intro To Express Framework
+        - REST API / How to build REST API's
+        - A bit about middleware
+        - POST request using express
