@@ -23,4 +23,8 @@ What we learn
         - Intro To Express Framework
         - REST API / How to build REST API's
         - A bit about middleware
-        - POST request using express
+        - POST request using express (including handling URL param)
+        - PATCH request
+        - DELETE request
+        - Formatting the Code
+        - Middleware (adding custom middleware, using third-path middleware through NPM)
