@@ -8,6 +8,7 @@ const userRouter = require('./routes/userRouters');
 // 1. MIDDLEWARE
 app.use(morgan('dev'));
 app.use(express.json());
+app.use(express.static(`${__dirname}/public`));
 
 // 2. ROUTES
 app.use('/api/v1/tours', tourRouter);

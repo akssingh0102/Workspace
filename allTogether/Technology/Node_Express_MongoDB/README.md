@@ -27,5 +27,5 @@ What we learn
         - PATCH request
         - DELETE request
         - Formatting the Code (routes)
-        - Middleware (adding custom middleware, using third-path middleware through NPM)
+        - Middleware (adding custom middleware, using third-path middleware through NPM, param MIDDLEWARE)
         - Mounting, Routers (file structuring) 
