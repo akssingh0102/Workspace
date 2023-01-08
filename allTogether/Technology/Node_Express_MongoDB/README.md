@@ -26,5 +26,6 @@ What we learn
         - POST request using express (including handling URL param)
         - PATCH request
         - DELETE request
-        - Formatting the Code
+        - Formatting the Code (routes)
         - Middleware (adding custom middleware, using third-path middleware through NPM)
+        - Mounting, Routers (file structuring) 
