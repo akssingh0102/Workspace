@@ -28,4 +28,5 @@ What we learn
         - DELETE request
         - Formatting the Code (routes)
         - Middleware (adding custom middleware, using third-path middleware through NPM, param MIDDLEWARE)
-        - Mounting, Routers (file structuring) 
+        - Mounting, Routers (file structuring)
+        - Enviorment Variable (express and Node, setting up config.env file)
