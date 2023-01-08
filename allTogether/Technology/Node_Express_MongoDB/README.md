@@ -30,3 +30,4 @@ What we learn
         - Middleware (adding custom middleware, using third-path middleware through NPM, param MIDDLEWARE)
         - Mounting, Routers (file structuring)
         - Enviorment Variable (express and Node, setting up config.env file)
+        - Setting up ES lint and Prettier in VS Code
