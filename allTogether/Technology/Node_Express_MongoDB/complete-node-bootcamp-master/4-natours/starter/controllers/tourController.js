@@ -1,22 +1,5 @@
 const fs = require('fs');
-
-const tours = JSON.parse(
-  fs.readFileSync(`${__dirname}/../dev-data/data/tours-simple.json`)
-);
-
-const checkId = (req, res, next, val) => {
-  const id = val * 1;
-  const tour = tours.find((el) => el.id == id);
-
-  if (!tour) {
-    return res.status(404).json({
-      status: 'failed',
-      message: 'invalid Id',
-    });
-  }
-
-  next();
-};
+const Tour = require('./../models/tourModel');
 
 const getAllTours = (req, res) => {
   res.status(200).json({
@@ -95,6 +78,5 @@ module.exports = {
   createTour,
   updateTour,
   deleteTour,
-  checkId,
   checkBody,
 };
