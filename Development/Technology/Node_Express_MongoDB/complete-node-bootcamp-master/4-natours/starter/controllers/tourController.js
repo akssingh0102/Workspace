@@ -6,7 +6,7 @@ const Tour = require('./../models/tourModel');
 const getAllTours = async (req, res) => {
   try {
     const tours = await Tour.find();
-    res.json({ status: 'success', data: tours });
+    res.json({ status: 'success', results: tours.length, data: tours });
   } catch (err) {
     res.status(404).json({ status: 'fail', message: err });
   }
@@ -22,7 +22,7 @@ const createTour = async (req, res) => {
   } catch (err) {
     res.status(404).json({
       status: 'fail',
-      message: 'Invalid data sent !!',
+      message: err,
     });
   }
 };
