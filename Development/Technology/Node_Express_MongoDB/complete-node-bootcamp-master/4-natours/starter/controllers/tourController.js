@@ -5,7 +5,25 @@ const Tour = require('./../models/tourModel');
 // @access public
 const getAllTours = async (req, res) => {
   try {
-    const tours = await Tour.find();
+    // creating a deep copy of query parameter
+    const queryObj = { ...req.query };
+    const excludeFields = ['page', 'sort', 'limit', 'fields'];
+    excludeFields.forEach((el) => delete queryObj[el]);
+
+    // BUILD QUERY
+    // Normal way of query
+    const query = Tour.find(queryObj);
+
+    // Mongoose special methods
+    // const query = Tour.find()
+    //   .where('duration')
+    //   .equals(5)
+    //   .where('difficulty')
+    //   .equals('easy');
+
+    // EXECUTE QUERY
+    const tours = await query;
+
     res.json({ status: 'success', results: tours.length, data: tours });
   } catch (err) {
     res.status(404).json({ status: 'fail', message: err });
