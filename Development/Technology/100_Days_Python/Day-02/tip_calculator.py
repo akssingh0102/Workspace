@@ -7,10 +7,13 @@
 
 #Write your code below this line 👇
 
-amount = int(input("Enter the bill amount\n"))
+amount = float(input("Enter the bill amount\n"))
 tip = int(input("Enter the tip percentage %\n"))
 members = int(input("Enter the number of members\n"))
 
 amount_each_pay = (1 + (tip/100.0)) * (amount*1.0/members)
-print("Each person will pay" , round(amount_each_pay, 2))
+amount_each_pay = round(amount_each_pay, 2)
+amount_each_pay = "{:.2f}".format(amount_each_pay)
+
+print("Each person will pay" , amount_each_pay)
 
