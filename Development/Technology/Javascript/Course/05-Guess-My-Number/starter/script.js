@@ -25,7 +25,7 @@ document.querySelector('.check').addEventListener('click', function () {
     } else if (guessValue === secretNumber) {
         document.querySelector('.message').textContent =
             '🎉 Valla you have guessed the number !!';
-            handlePlayerWon();
+        handlePlayerWon();
     } else if (guessValue < secretNumber) {
         document.querySelector('.message').textContent = 'A little higher ☝️';
         displayScore();
