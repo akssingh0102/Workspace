@@ -12,6 +12,11 @@ const displayScore = () => {
     document.querySelector('.score').textContent = score;
 };
 
+const handlePlayerWon = () => {
+    document.querySelector('body').style.backgroundColor = "#60b347";
+    document.querySelector('.number').style.width = "30rem";
+}
+
 document.querySelector('.check').addEventListener('click', function () {
     const guessValue = Number(document.querySelector('.guess').value);
 
@@ -20,6 +25,7 @@ document.querySelector('.check').addEventListener('click', function () {
     } else if (guessValue === secretNumber) {
         document.querySelector('.message').textContent =
             '🎉 Valla you have guessed the number !!';
+            handlePlayerWon();
     } else if (guessValue < secretNumber) {
         document.querySelector('.message').textContent = 'A little higher ☝️';
         displayScore();
