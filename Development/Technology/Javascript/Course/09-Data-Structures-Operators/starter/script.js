@@ -26,4 +26,36 @@ const restaurant = {
       close: 24,
     },
   },
+
+  order: function(starterIndex, mainIndex){
+    return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]]
+  }
 };
+
+
+const arr = [2,3,4];
+
+// Array De-structuring
+const [a,b,c] = arr;
+console.log(a,b,c);
+
+// Extracting only required data
+let [first, ,second] = restaurant.categories;
+console.log(first,second);
+
+// Swapping two variables
+[first, second] = [second, first];
+console.log(first,second);
+
+// Destructuring array returned by a function
+const [starter, main]= restaurant.order(2,0);
+console.log(starter, main);
+
+// Destructuring nested array
+const newArr = [1,2,[3,4]];
+const [i,j,[k,l]] = newArr;
+console.log(i,j,k,l);
+
+// Default values while destructuring
+const [p=0,q=0,r=0] = [8,9];
+console.log(p,q,r);
