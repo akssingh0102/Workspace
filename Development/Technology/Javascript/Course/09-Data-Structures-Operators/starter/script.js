@@ -33,29 +33,60 @@ const restaurant = {
 };
 
 
-const arr = [2,3,4];
+// ------------------------------------ Array Destructuring ------------------------------------
 
-// Array De-structuring
-const [a,b,c] = arr;
-console.log(a,b,c);
+// const arr = [2,3,4];
 
-// Extracting only required data
-let [first, ,second] = restaurant.categories;
-console.log(first,second);
+// // Array De-structuring
+// const [a,b,c] = arr;
+// console.log(a,b,c);
 
-// Swapping two variables
-[first, second] = [second, first];
-console.log(first,second);
+// // Extracting only required data
+// let [first, ,second] = restaurant.categories;
+// console.log(first,second);
 
-// Destructuring array returned by a function
-const [starter, main]= restaurant.order(2,0);
-console.log(starter, main);
+// // Swapping two variables
+// [first, second] = [second, first];
+// console.log(first,second);
 
-// Destructuring nested array
-const newArr = [1,2,[3,4]];
-const [i,j,[k,l]] = newArr;
-console.log(i,j,k,l);
+// // Destructuring array returned by a function
+// const [starter, main]= restaurant.order(2,0);
+// console.log(starter, main);
 
-// Default values while destructuring
-const [p=0,q=0,r=0] = [8,9];
-console.log(p,q,r);
+// // Destructuring nested array
+// const newArr = [1,2,[3,4]];
+// const [i,j,[k,l]] = newArr;
+// console.log(i,j,k,l);
+
+// // Default values while destructuring
+// const [p=0,q=0,r=0] = [8,9];
+// console.log(p,q,r);
+
+
+// ------------------------------------ Object Destructuring ------------------------------------
+
+// Object destructuring
+const {name, openingHours, categories} = restaurant;
+console.log(name, openingHours, categories);
+
+// When we want variables names to be different than the actual object property name
+// It is same as above but using different variables name than property
+const {name: restaurantName, openingHours: hours, categories: tags} = restaurant;
+console.log(restaurantName, hours, tags);
+
+// Default values in case of object destructuring
+const {menu = [], starterMenu: starters = []} = restaurant;
+console.log(menu, starters);
+
+// Mutating Variables
+let a = 99;
+let b = 99;
+const obj = {a:1, b:2, c:3};
+// {a, b} = obj;   // This will throw error 
+({a, b} = obj);   // wrapping it in parenthesis will solve the issue
+console.log(a, b);
+
+// Nested objects (we want ot fetch the open and close hours of friday)
+const {fri: {open , close}} = restaurant.openingHours;
+console.log(open, close);
+
