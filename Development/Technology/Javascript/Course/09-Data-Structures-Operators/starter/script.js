@@ -65,28 +65,45 @@ const restaurant = {
 
 // ------------------------------------ Object Destructuring ------------------------------------
 
-// Object destructuring
-const {name, openingHours, categories} = restaurant;
-console.log(name, openingHours, categories);
+// // Object destructuring
+// const {name, openingHours, categories} = restaurant;
+// console.log(name, openingHours, categories);
 
-// When we want variables names to be different than the actual object property name
-// It is same as above but using different variables name than property
-const {name: restaurantName, openingHours: hours, categories: tags} = restaurant;
-console.log(restaurantName, hours, tags);
+// // When we want variables names to be different than the actual object property name
+// // It is same as above but using different variables name than property
+// const {name: restaurantName, openingHours: hours, categories: tags} = restaurant;
+// console.log(restaurantName, hours, tags);
 
-// Default values in case of object destructuring
-const {menu = [], starterMenu: starters = []} = restaurant;
-console.log(menu, starters);
+// // Default values in case of object destructuring
+// const {menu = [], starterMenu: starters = []} = restaurant;
+// console.log(menu, starters);
 
-// Mutating Variables
-let a = 99;
-let b = 99;
-const obj = {a:1, b:2, c:3};
-// {a, b} = obj;   // This will throw error 
-({a, b} = obj);   // wrapping it in parenthesis will solve the issue
-console.log(a, b);
+// // Mutating Variables
+// let a = 99;
+// let b = 99;
+// const obj = {a:1, b:2, c:3};
+// // {a, b} = obj;   // This will throw error 
+// ({a, b} = obj);   // wrapping it in parenthesis will solve the issue
+// console.log(a, b);
 
-// Nested objects (we want ot fetch the open and close hours of friday)
-const {fri: {open , close}} = restaurant.openingHours;
-console.log(open, close);
+// // Nested objects (we want ot fetch the open and close hours of friday)
+// const {fri: {open , close}} = restaurant.openingHours;
+// console.log(open, close);
 
+
+// ------------------------------------ Spread Operator (...) ------------------------------------
+
+
+const arr = [3,4,5];
+console.log(arr);
+
+// add 2 elements at the begging of arr
+const newArr = [1, 2, ...arr];
+console.log(newArr);
+
+// add a new Menu and the Main menu of restaurant class
+const newMenu = [...restaurant.mainMenu , 'Gnocci'];
+console.log(newMenu);
+
+// Copy Array (Shallow Copy)
+const mainMenuCopy = [...restaurant.mainMenu];
