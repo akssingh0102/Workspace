@@ -71,10 +71,28 @@ function Menu() {
   return (
     <main className="menu">
       <h2>Our Menu</h2>
-      <Pizza />
-      <Pizza />
-      <Pizza />
+      <ul className="pizzas">
+        {pizzaData.map((data) => (
+          <Pizza pizzaObj={data} key={data.name} />
+        ))}
+      </ul>
     </main>
+  );
+}
+
+function Pizza(props) {
+  console.log(props)
+  const { name, ingredients, photoName, price } = props.pizzaObj;
+
+  return (
+    <li className="pizza">
+      <img src={photoName} alt={name} />
+      <div>
+        <h3>{name}</h3>
+        <p>{ingredients}</p>
+        <span>{price}</span>
+      </div>
+    </li>
   );
 }
 
@@ -87,17 +105,9 @@ function Footer() {
 
   // console.log(hour);
   return (
-    <footer className="footer">{new Date().toLocaleTimeString()} We're currently open</footer>
-  );
-}
-
-function Pizza() {
-  return (
-    <div>
-      <h3>Focaccia</h3>
-      <p>Bread with italian olive oil and rosemary</p>
-      <img src="pizzas/focaccia.jpg" alt="Focaccia" />
-    </div>
+    <footer className="footer">
+      {new Date().toLocaleTimeString()} We're currently open
+    </footer>
   );
 }
 
