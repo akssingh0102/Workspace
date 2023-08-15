@@ -1,5 +1,7 @@
 {
     "files.associations": {
+        "*.ejs": "html",
+        "*.cpp": "cpp",
         "ostream": "cpp",
         "iostream": "cpp",
         "any": "cpp",
@@ -79,7 +81,8 @@
         "typeindex": "cpp",
         "typeinfo": "cpp",
         "valarray": "cpp",
-        "variant": "cpp"
+        "variant": "cpp",
+        "ios": "cpp"
     },
     "C_Cpp.errorSquiggles": "Enabled",
     "cSpell.words": [
