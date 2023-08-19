@@ -25,18 +25,33 @@ using namespace std;
 #define pq                  priority_queue <int, vector<int>, greater<int> >
 #define mod                 1000000007
 
+unordered_map<long long int, long long int> um;
+long long int fib(long long int n)
+{
+    if (n <= 2)
+        return 1;
+    if (um.count(n) != 0)
+        return um[n];
 
-int main(){
+    long long int currentRes = fib(n - 1) + fib(n - 2);
+    um[n] = currentRes;
+    return currentRes;
+}
+
+int main()
+{
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 
-    #ifndef ONLINE_JUDGE
+#ifndef ONLINE_JUDGE
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
-    #endif
+#endif
 
-    cout<< "Akash";
-    
-    
+    cout << fib(6) << endl;
+    cout << fib(7) << endl;
+    cout << fib(8) << endl;
+    cout << fib(50) << endl;
+
     return 0;
 }
