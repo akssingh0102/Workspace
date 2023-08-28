@@ -82,7 +82,12 @@
         "typeinfo": "cpp",
         "valarray": "cpp",
         "variant": "cpp",
-        "ios": "cpp"
+        "ios": "cpp",
+        "filesystem": "cpp",
+        "format": "cpp",
+        "__bit_reference": "cpp",
+        "__locale": "cpp",
+        "__string": "cpp"
     },
     "C_Cpp.errorSquiggles": "Enabled",
     "cSpell.words": [
@@ -91,5 +96,6 @@
         "llmin",
         "popcountll",
         "zerobits"
-    ]
+    ],
+    "C_Cpp.default.compilerPath": "/usr/bin/gcc"
 }
