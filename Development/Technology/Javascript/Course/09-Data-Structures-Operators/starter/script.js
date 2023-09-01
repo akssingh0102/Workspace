@@ -27,11 +27,10 @@ const restaurant = {
     },
   },
 
-  order: function(starterIndex, mainIndex){
-    return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]]
-  }
+  order: function (starterIndex, mainIndex) {
+    return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
+  },
 };
-
 
 // ------------------------------------ Array Destructuring ------------------------------------
 
@@ -62,7 +61,6 @@ const restaurant = {
 // const [p=0,q=0,r=0] = [8,9];
 // console.log(p,q,r);
 
-
 // ------------------------------------ Object Destructuring ------------------------------------
 
 // // Object destructuring
@@ -82,7 +80,7 @@ const restaurant = {
 // let a = 99;
 // let b = 99;
 // const obj = {a:1, b:2, c:3};
-// // {a, b} = obj;   // This will throw error 
+// // {a, b} = obj;   // This will throw error
 // ({a, b} = obj);   // wrapping it in parenthesis will solve the issue
 // console.log(a, b);
 
@@ -90,20 +88,20 @@ const restaurant = {
 // const {fri: {open , close}} = restaurant.openingHours;
 // console.log(open, close);
 
-
 // ------------------------------------ Spread Operator (...) ------------------------------------
 
+// const arr = [3,4,5];
+// console.log(arr);
 
-const arr = [3,4,5];
-console.log(arr);
+// // add 2 elements at the begging of arr
+// const newArr = [1, 2, ...arr];
+// console.log(newArr);
 
-// add 2 elements at the begging of arr
-const newArr = [1, 2, ...arr];
-console.log(newArr);
+// // add a new Menu and the Main menu of restaurant class
+// const newMenu = [...restaurant.mainMenu , 'Gnocci'];
+// console.log(newMenu);
 
-// add a new Menu and the Main menu of restaurant class
-const newMenu = [...restaurant.mainMenu , 'Gnocci'];
-console.log(newMenu);
+// // Copy Array (Shallow Copy)
+// const mainMenuCopy = [...restaurant.mainMenu];
 
-// Copy Array (Shallow Copy)
-const mainMenuCopy = [...restaurant.mainMenu];
+// ------------------------------------ Optional Chaining (?.) ------------------------------------
