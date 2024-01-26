@@ -105,3 +105,13 @@ const restaurant = {
 // const mainMenuCopy = [...restaurant.mainMenu];
 
 // ------------------------------------ Optional Chaining (?.) ------------------------------------
+let sampleData = {
+  name: {
+    firstName: "Akash",
+    lastName: "Singh"
+  },
+  gender: "male",
+  age: 22
+};
+
+console.log(sampleData.name.middleName?.firstLetter)
